@@ -266,7 +266,7 @@ td:last-child {
 
 .pager li>a>span{
   padding-right: 10px;
-  color:gray;
+  color:#CACACA;
   padding: 10px 10px;  
 }
 
@@ -300,7 +300,7 @@ td:last-child {
 ::selection {
     color:#fff;
     text-shadow:none;
-    background:#FAFAFA;
+    background:#666666;
   }
 img::selection {
   color:#fff;
