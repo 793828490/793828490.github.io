@@ -517,7 +517,7 @@ img::-moz-selection {
     width: 100%;
     max-width: none;
     height: 100%;
-    background: url(/images/background-cover.jpg) top left no-repeat #C1BFBF;
+    background: url(/images/background-cover.jpg) top left no-repeat #FF0000;
     background-size: cover; }
 
   .panel-cover--collapsed {
