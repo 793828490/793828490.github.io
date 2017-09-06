@@ -9,12 +9,12 @@ tag: 博客
 最近看到了一个很好的游戏开发框架GameFream，正在学习中，它封装了一套的AB包的打包工具以及管理化的更新下载，感觉非常好用，充一下电，查阅了一些网上的博客以及翻阅5.X书籍整理了一份AssetBundle的简单使用。
 
 
-# 概述
+## 概述
 平时我们讲资源放入Unity项目的目录内时编辑器会自动帮我们将资源编码成Unity能识别的资源（会生成.meta文件）以便项目加载使用。`Resources.Load()`是我们常见的资源加载方式，但仅限于对`Assets/Resources`目录下的资源加载，并且此目录在打包时会被全部打到包里去，这种方式适用于在开发项目起初就定死的一些资源。而有些项目需要热更新替换部分原资源以及动态新增加一些资源，这对于已经发布的项目来说这种加载方式就不能满足了。  
 
 此时，Unity的另一种资源加载方式就能很好的解决这个问题--`AssetBundle`，俗称AB包。它能将资源文件通过Unity的API或者工具打包成一个AB资源包文件，然后在代码中通过API读取这个资源包来加载包里面的资源文件。它的好处在于它完全支持动态更改，不用在项目起初就决定，项目只需要更新AB包而不需要从新下载项目包就能达到更新效果。  
 
-# 制作AssetBundle资源包
+## 制作AssetBundle资源包
 ### 准备资源
 在Unity中找到需要打包的资源（图片、文本、预设等等要打包的资源），选中它会在Unity的属性面板右下角看到AssetBundle属性设置。  
 ![AssetBundle属性设置](/images/posts/posts-20170906/01.jpg)  
@@ -36,7 +36,7 @@ tag: 博客
 ![AB包输出目录](/images/posts/posts-20170906/02.jpg)  
 打包后增加了四个文件，分别对应了总包的AB文件和对应的Manifest文件，以及测试用的unlock.bb的AB包及Manifest文件。  
 
-# 加载AssetBundle资源包
+## 加载AssetBundle资源包
 
 ### 加载AssetBundle  
 非缓存机制的加载，下载后不会放入Unity引擎特定缓存区。 (url为本地或远端的AB包路径)
@@ -57,7 +57,7 @@ GameObject.Instantiate(bb);
 ```
 AssetBundle的LoadAsset还有异步加载方式。
 
-# 完整代码
+## 完整代码
 ```csharp
 using System.Collections;
 using System.Collections.Generic;
