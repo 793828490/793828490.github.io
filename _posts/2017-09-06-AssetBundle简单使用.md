@@ -15,13 +15,13 @@ tag: 博客
 此时，Unity的另一种资源加载方式就能很好的解决这个问题--`AssetBundle`，俗称AB包。它能将资源文件通过Unity的API或者工具打包成一个AB资源包文件，然后在代码中通过API读取这个资源包来加载包里面的资源文件。它的好处在于它完全支持动态更改，不用在项目起初就决定，项目只需要更新AB包而不需要从新下载项目包就能达到更新效果。  
 
 # 制作AssetBundle资源包
-## 准备资源
+### 准备资源
 在Unity中找到需要打包的资源（图片、文本、预设等等要打包的资源），选中它会在Unity的属性面板右下角看到AssetBundle属性设置。  
 ![AssetBundle属性设置](/images/posts/posts-20170906/01.jpg)  
 图中①②分别为打包出来后的主名和后缀名，设置好后打包出来将输出该文件名的AB包文件。几个文件都设为相同名称的话，将会把它们都打包到该AB包中。  
 这里值得一提的是所有输出的AB包在打包时都会生成对应的`Manifest`文件，它是用来处理AB包内资源的依赖关系。假设这个AB包中的A、B预设分别用到了J图片，打包过程中不会重复将J图打入包中，如果A做了改变不用J图了，系统打包也不会全部重新打包，只更新A到包中。
 
-## 打包
+### 打包
 打AB资源包需要用到API：`BuildPipeline.BuildAssetBundles`，为了方便使用，制作一个编辑器运行脚本来执行打包。新建一个AssetBundles文件夹作为AB包的输出目录。  
 ```csharp
 [MenuItem("Assets/Build AssetBundles")]
@@ -38,7 +38,7 @@ tag: 博客
 
 # 加载AssetBundle资源包
 
-## 加载AssetBundle  
+### 加载AssetBundle  
 非缓存机制的加载，下载后不会放入Unity引擎特定缓存区。 (url为本地或远端的AB包路径)
 >WWW www = new WWW(url);  
 AssetBundle assetBundle = www.assetBundle;
@@ -49,7 +49,7 @@ AssetBundle assetBundle = www.assetBundle;
 >WWW www = WWW.LoadfromCacheorDownload(url,0);  
 AssetBundle assetBundle = www.assetBundle;
 
-## 从AssetBundle中加载Assets资源
+### 从AssetBundle中加载Assets资源
 
 ```csharp
 GameObject bb = assetBundle.LoadAsset<GameObject>("Assets/Art/UI_new/Prefab/Canvas_Unlock.prefab");
